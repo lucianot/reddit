@@ -41,6 +41,7 @@ class LinksController < ApplicationController
   # POST /links.xml
   def create
     @link = Link.new(params[:link])
+    @link.user_id = current_user.id
 
     respond_to do |format|
       if @link.save
