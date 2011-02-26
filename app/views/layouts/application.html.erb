@@ -12,8 +12,7 @@
 
 	<div id="user_nav">  
 	  <% if user_signed_in? %>  
-			<%= "Signed in as #{current_user.username}
-				#{' (admin)' if current_user.admin?}. Not you?" %>
+			<%= "Signed in as #{extended_username}. Not you?" %>
 	    <%= link_to "Sign out", destroy_user_session_path %>  
 	  <% else %>  
 	    <%= link_to "Sign up", new_user_registration_path %> or  
