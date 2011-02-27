@@ -24,7 +24,7 @@ class LinksController < ApplicationController
   # GET /links/new
   # GET /links/new.xml
   def new
-    @link = Link.new
+    @link = current_user.links.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +41,7 @@ class LinksController < ApplicationController
   # POST /links.xml
   def create
     @link = Link.new(params[:link])
-    @link.user_id = current_user.id
+    # @link.user = current_user
 
     respond_to do |format|
       if @link.save

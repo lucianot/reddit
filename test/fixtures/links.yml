@@ -1,13 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  url: MyString
-  title: MyString
-  description: MyText
-  user_id: 1
-
-two:
-  url: MyString
-  title: MyString
-  description: MyText
+  url: www.reddit.com
+  title: This guy copied me!
   user_id: 1
