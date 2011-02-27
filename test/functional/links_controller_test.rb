@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class LinksControllerTest < ActionController::TestCase
-  include Devise::TestHelpers
   
   setup do
     @link = links(:one)
