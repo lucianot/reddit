@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class LinksControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  
   setup do
     @link = links(:one)
   end
@@ -17,6 +19,7 @@ class LinksControllerTest < ActionController::TestCase
   end
 
   test "should create link" do
+    sign_in @link.user
     assert_difference('Link.count') do
       post :create, :link => @link.attributes
     end
@@ -46,4 +49,5 @@ class LinksControllerTest < ActionController::TestCase
 
     assert_redirected_to links_path
   end
+    
 end

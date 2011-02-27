@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   attr_accessible :username, :login
   attr_accessor :login
   
+  validates_presence_of   :username
+  validates_uniqueness_of :username
+  
   protected
 
   def self.find_for_database_authentication(conditions)

@@ -40,7 +40,7 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.xml
   def create
-    @link = current_user.links.new(params[:link])
+    @link = current_user.links.build(params[:link])
 
     respond_to do |format|
       if @link.save
