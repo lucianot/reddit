@@ -1,4 +1,7 @@
 class LinksController < ApplicationController
+  
+  before_filter :prepend_url_protocol, :only => [:create, :update]
+  
   # GET /links
   # GET /links.xml
   def index
@@ -78,6 +81,12 @@ class LinksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(links_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def prepend_url_protocol
+    unless params[:link][:url].starts_with?('http://') || params[:link][:url].starts_with?('https://')
+      params[:link][:url] = 'http://' + params[:link][:url] 
     end
   end
 end

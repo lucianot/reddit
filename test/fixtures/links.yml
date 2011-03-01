@@ -1,6 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  url: www.reddit.com
+  id: 1
+  url: http://www.reddit.com
   title: This guy copied me!
+  user_id: 1
+  
+two:
+  id: 2
+  url: http://www.digg.com
+  title: RIP
   user_id: 1

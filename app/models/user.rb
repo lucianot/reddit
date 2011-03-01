@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of   :username
   validates_uniqueness_of :username
+  validates_length_of     :username, :in => 2..20
   
   protected
 
