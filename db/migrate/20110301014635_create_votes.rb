@@ -1,7 +1,7 @@
 class CreateVotes < ActiveRecord::Migration
   def self.up
     create_table :votes do |t|
-      t.integer :count, :default => 0
+      t.integer :value, :default => 0
       t.references :user
       t.references :link
 

@@ -40,17 +40,24 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.xml
   def create
-    @vote = Vote.new(params[:vote])
-
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
-        format.xml  { render :xml => @vote, :status => :created, :location => @vote }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @vote.errors, :status => :unprocessable_entity }
+    @link = Link.find(params[:vote][:link_id])
+    
+    unless voted?(@link)
+      @vote = current_user.votes.build(:link_id => @link.id, :value => 1)
+      respond_to do |format|
+        if @vote.save
+          format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
+          format.xml  { render :xml => @vote, :status => :created, :location => @vote }
+        else
+          format.html { render :action => "new", :notice => 'Invalid vote' }
+          format.xml  { render :xml => @vote.errors, :status => :unprocessable_entity }
+        end
       end
-    end
+    else
+      respond_to do |format|
+        format.html { redirect_to(votes_url, :notice => 'Vote already exists.') }
+      end
+    end  
   end
 
   # PUT /votes/1

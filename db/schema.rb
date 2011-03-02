@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20110301014635) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer  "count",      :default => 0
+    t.integer  "value",      :default => 0
     t.integer  "user_id"
     t.integer  "link_id"
     t.datetime "created_at"

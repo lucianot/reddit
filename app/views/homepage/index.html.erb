@@ -1,1 +1,9 @@
 <h1>Reddit clone</h1>
+
+<% @links.each do |link| %>
+	<div>
+		<%= link.votes.map {|vote| vote.value}.sum %>
+		<%= link.title %>
+		<%= link_to link.url %>
+	</div>
+<% end %>

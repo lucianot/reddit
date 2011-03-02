@@ -12,9 +12,9 @@
 
 <% @votes.each do |vote| %>
   <tr>
-    <td><%= vote.count %></td>
-    <td><%= vote.user_id %></td>
-    <td><%= vote.link_id %></td>
+    <td><%= vote.value %></td>
+    <td><%= vote.user.username %></td>
+    <td><%= vote.link.title %></td>
     <td><%= link_to 'Show', vote %></td>
     <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
     <td><%= link_to 'Destroy', vote, :confirm => 'Are you sure?', :method => :delete %></td>
