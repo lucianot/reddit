@@ -34,7 +34,11 @@ class VotesController < ApplicationController
     @link = Link.find(params[:id])
     
     unless voted?(@link)
-      @vote = current_user.votes.build(:link_id => @link.id, :value => 1)
+      if params[:value].to_i == 1
+        @vote = current_user.votes.build(:link_id => @link.id, :value => 1)
+      else
+        @vote = current_user.votes.build(:link_id => @link.id, :value => -1)
+      end
       respond_to do |format|
         if @vote.save
           format.html { redirect_to(root_path, :notice => 'Vote was successfully created.') }
