@@ -10,8 +10,10 @@
 	</tr>
 <% @links.each do |link| %>
 	<tr>
-		<td><%= button_to '+', votes_path(:id => link.id, :value => 1), :method => :post %></td>
-		<td><%= button_to '-', votes_path(:id => link.id, :value => -1), :method => :post %></td>
+		<td><%= button_to '+', votes_path(:id => link.id, :value => 1), 
+			:method => :post %></td>
+		<td><%= button_to '-', votes_path(:id => link.id, :value => -1), 
+			:method => :post %></td>
 		<td><%= link.score %></td>
 		<td><%= link.title %></td>
 		<td><%= link_to link.url %></td>
