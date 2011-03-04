@@ -1,9 +1,18 @@
 <h1>Reddit clone</h1>
 
+<table>
+	<tr>
+		<th></th>
+		<th>Votes</th>
+		<th>Title</th>
+		<th>Link</th>
+	</tr>
 <% @links.each do |link| %>
-	<div>
-		<%= link.votes.map {|vote| vote.value}.sum %>
-		<%= link.title %>
-		<%= link_to link.url %>
-	</div>
+	<tr>
+		<td><%= button_to '+', votes_path(:id => link.id), :method => :post %></td>
+		<td><%= link.score %></td>
+		<td><%= link.title %></td>
+		<td><%= link_to link.url %></td>
+	</tr>
 <% end %>
+</table>

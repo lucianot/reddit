@@ -21,17 +21,6 @@ class VotesController < ApplicationController
     end
   end
 
-  # GET /votes/new
-  # GET /votes/new.xml
-  def new
-    @vote = Vote.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @vote }
-    end
-  end
-
   # GET /votes/1/edit
   def edit
     @vote = Vote.find(params[:id])
@@ -40,22 +29,22 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.xml
   def create
-    @link = Link.find(params[:vote][:link_id])
+    @link = Link.find(params[:id])
     
     unless voted?(@link)
       @vote = current_user.votes.build(:link_id => @link.id, :value => 1)
       respond_to do |format|
         if @vote.save
-          format.html { redirect_to(@vote, :notice => 'Vote was successfully created.') }
+          format.html { redirect_to(root_path, :notice => 'Vote was successfully created.') }
           format.xml  { render :xml => @vote, :status => :created, :location => @vote }
         else
-          format.html { render :action => "new", :notice => 'Invalid vote' }
+          format.html { redirect_to(root_path, :notice => 'Invalid vote') }
           format.xml  { render :xml => @vote.errors, :status => :unprocessable_entity }
         end
       end
     else
       respond_to do |format|
-        format.html { redirect_to(votes_url, :notice => 'Vote already exists.') }
+        format.html { redirect_to(root_path, :notice => 'Vote already exists.') }
       end
     end  
   end

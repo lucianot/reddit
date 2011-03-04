@@ -7,9 +7,6 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-
 	<div id="user_nav">  
 	  <% if user_signed_in? %>  
 			<%= "Signed in as #{extended_username}. Not you?" %>
@@ -23,4 +20,9 @@
 <%= yield %>
 
 </body>
+
+<footer>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+</footer>
 </html>
