@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
     !!current_user.votes.find_by_link_id(link.id)
   end
   
+  def authorize_admin!
+    unless current_user.admin
+      redirect_to root_path, :notice => 'This page is restricted to admins only.'
+      return false
+    end
+  end
+  
 end

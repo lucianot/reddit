@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_filter :authorize_admin!, :except => [:create]
+  
   # GET /votes
   # GET /votes.xml
   def index

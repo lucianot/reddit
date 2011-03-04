@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   
   before_filter :prepend_url_protocol, :only => [:create, :update]
+  before_filter :authorize_admin!, :except => [:new, :create]
   
   # GET /links
   # GET /links.xml
