@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :links
-  has_many :votes
+  has_many :votes, :dependent => :destroy
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
