@@ -13,4 +13,14 @@ class Link < ActiveRecord::Base
     !!self.votes.find_by_user_id(current_user.id)
   end
   
+  def upvote
+    vote = current_user.votes.build(:link => self, :value => 1)
+    vote.save
+  end
+  
+  def downvote
+    vote = current_user.votes.build(:link => self, :value => -1)
+    vote.save
+  end
+  
 end
