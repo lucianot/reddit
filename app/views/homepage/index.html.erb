@@ -12,7 +12,7 @@
 	<tr>
 		<td>
 			<% if link.user_vote(current_user) == 1 %>
-				<%= button_to '   ', :disabled => true %>
+				<%= button_to '   ', {}, :disabled => true %>
 			<% elsif link.user_vote(current_user) == -1 %>
 				<%= button_to '+', remove_vote_path(:id => link.id) %>
 			<% else %>
@@ -21,7 +21,7 @@
 		</td>
 		<td>
 			<% if link.user_vote(current_user) == -1 %>
-				<%= button_to '  ', :disabled => true %>
+				<%= button_to '  ', {}, :disabled => true %>
 			<% elsif link.user_vote(current_user) == 1 %>
 				<%= button_to '-', remove_vote_path(:id => link.id) %>
 			<% else %>
