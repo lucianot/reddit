@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
   
   def authorize_admin!
-    unless current_user.admin
+    unless current_user and current_user.admin?
       redirect_to root_path, :notice => 'This page is restricted to admins only.'
       return false
     end

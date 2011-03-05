@@ -10,10 +10,24 @@
 	</tr>
 <% @links.each do |link| %>
 	<tr>
-		<td><%= button_to '+', votes_path(:id => link.id, :value => 1), 
-			:method => :post %></td>
-		<td><%= button_to '-', votes_path(:id => link.id, :value => -1), 
-			:method => :post %></td>
+		<td>
+			<% if link.user_vote(current_user) == 1 %>
+				<%= button_to '   ', :disabled => true %>
+			<% elsif link.user_vote(current_user) == -1 %>
+				<%= button_to '+', remove_vote_path(:id => link.id) %>
+			<% else %>
+				<%= button_to '+', up_vote_path(:id => link.id) %>
+			<% end %>
+		</td>
+		<td>
+			<% if link.user_vote(current_user) == -1 %>
+				<%= button_to '  ', :disabled => true %>
+			<% elsif link.user_vote(current_user) == 1 %>
+				<%= button_to '-', remove_vote_path(:id => link.id) %>
+			<% else %>
+				<%= button_to '-', down_vote_path(:id => link.id) %>
+			<% end %>
+		</td>
 		<td><%= link.score %></td>
 		<td><%= link.title %></td>
 		<td><%= link_to link.url %></td>
