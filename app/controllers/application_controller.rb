@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :index
   
   def voted?(link)
     !!current_user.votes.find_by_link_id(link.id)

@@ -18,6 +18,11 @@
 	  <% end %>  
 	</div>
 	<%= link_to "Submit link", new_link_path %>
+	<% if current_user and current_user.admin? %>
+		<%= link_to "Edit links", links_path %>
+		<%= link_to "Edit votes", votes_path %>
+		<%= link_to "Front page", root_path %>
+	<% end %>
 	
 <%= yield %>
 
