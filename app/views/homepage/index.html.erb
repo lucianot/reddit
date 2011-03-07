@@ -1,13 +1,4 @@
-<h1>Slacker News</h1>
-
 <table>
-	<tr>
-		<th></th>
-		<th></th>
-		<th>Votes</th>
-		<th>Title</th>
-		<th>Link</th>
-	</tr>
 <% @links.each do |link| %>
 	<tr>
 		<td>
@@ -28,9 +19,11 @@
 				<%= button_to '-', down_vote_path(:id => link.id) %>
 			<% end %>
 		</td>
-		<td><%= link.score %></td>
-		<td><%= link.title %></td>
-		<td><%= link_to link.url, link.url %></td>
+		<td><%= link_to link.title, link.url %>
+				<%= "(#{host_only(link.url)})" %><br />
+				<%= "#{link.score} points"%>
+				<%= "by #{link.user.username}" %>
+				<%= "#{time_ago_in_words(link.created_at)} ago" %></td>
 	</tr>
 <% end %>
 </table>

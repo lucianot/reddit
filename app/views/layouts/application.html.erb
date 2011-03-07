@@ -8,7 +8,14 @@
 </head>
 <body>
 
-	<div id="user_nav">  
+	<div id="user_nav"> 
+		<b>Slacker News</b>
+		<%= link_to "Submit link", new_link_path %>
+		<% if current_user and current_user.admin? %>
+			<%= link_to "Edit links", links_path %>
+			<%= link_to "Edit votes", votes_path %>
+			<%= link_to "Front page", root_path %>
+		<% end %>
 	  <% if user_signed_in? %>  
 			<%= "Signed in as #{extended_username}. Not you?" %>
 	    <%= link_to "Sign out", destroy_user_session_path %>  
@@ -17,13 +24,8 @@
 	    <%= link_to "Sign in", new_user_session_path %>  
 	  <% end %>  
 	</div>
-	<%= link_to "Submit link", new_link_path %>
-	<% if current_user and current_user.admin? %>
-		<%= link_to "Edit links", links_path %>
-		<%= link_to "Edit votes", votes_path %>
-		<%= link_to "Front page", root_path %>
-	<% end %>
 	
+<br />
 <%= yield %>
 
 </body>
