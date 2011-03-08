@@ -26,7 +26,7 @@ users = User.create([{:email => 'adminguy@email.com',
 User.find_by_email('adminguy@email.com').update_attribute(:admin, true)
                       
 links = Link.create([{:title => 'These guys copied my website! Should I sue?',
-                      :url => 'http://www.reddit.com',
+                      :url => 'http://news.ycombinator.com/news',
                       :user_id => users.first.id},
                     { :title => 'I love Bacon!',
                       :url => 'http://en.wikipedia.org/wiki/Francis_Bacon',
