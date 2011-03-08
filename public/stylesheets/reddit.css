@@ -1,0 +1,103 @@
+body {
+	font-family: verdana;
+	font-size: 12px;
+	font-color: black;
+}
+
+.header {
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+	border: 0;  
+	background-color:#FF6600;
+  font-size:   11px;
+  line-height: 16px;
+	outline-color: yellow;
+	outline-width: 5px;
+}
+
+.header #title {
+	font-weight: bold;
+	padding-left: 10px;
+	text-align: left;
+	width: 120px;
+}
+
+.header #new {
+	text-align: left;
+	width: 40px;
+}
+
+.header #admin {
+}
+
+.header #login {
+	text-align: right;
+	padding-right: 4px;
+}
+
+.links {
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+	background-color:#F6F6EF;
+	padding-top: 8px;
+	padding-bottom: 16px;
+}
+
+.links #count {
+	padding-top: 4px;
+	vertical-align: top;
+	font-size:   11px;
+  line-height: 11px;
+	color: #787878;
+	width: 10px;
+}
+
+.links #count #one {
+	padding-left: 10px;
+}
+
+.links #button {
+	width: 14px;
+}
+
+.links #button #disabled {
+	opacity: 0.15;
+	/*visibility: hidden;*/
+}
+
+.links #title {
+	font-size:   11px;
+  line-height: 8px;
+}
+
+.links #host {
+	font-size:   9px;
+  line-height: 9px;
+	color: #787878;
+}
+
+.links #second {
+	font-size:   8px;
+  line-height: 8px;
+	color: #787878;
+}
+
+.notice {
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+}
+
+.alert {
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;
+}
+
+a { text-decoration:none }
+a:link { color: black; }  
+a:visited {	color: black; }  	
+a:hover { color: black; } 
+a:active { color: white; }

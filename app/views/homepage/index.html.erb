@@ -1,29 +1,42 @@
-<table>
-<% @links.each do |link| %>
+<table class="links">
+<% @links.each_with_index do |link, i| %>
 	<tr>
-		<td>
-			<% if link.user_vote(current_user) == 1 %>
-				<%= button_to '   ', {}, :disabled => true %>
-			<% elsif link.user_vote(current_user) == -1 %>
-				<%= button_to '+', remove_vote_path(:id => link.id) %>
+		<td id="count">
+			<% if i<9 %>
+				<span id="one">
 			<% else %>
-				<%= button_to '+', up_vote_path(:id => link.id) %>
+				<span>
 			<% end %>
+			<%= "#{i+1}. " %></span><br /></td>
+		<td id="button">
+				<% if link.user_vote(current_user) == 1 %>
+					<span id="disabled">
+						<%= image_tag("grayarrow.gif", :border => 0) %>
+					</span>
+				<% elsif link.user_vote(current_user) == -1 %>
+					<%= link_to image_tag("grayarrow.gif", :border => 0), 
+						remove_vote_path(:id => link.id) %>
+				<% else %>
+					<%= link_to image_tag("grayarrow.gif", :border => 0), 
+						up_vote_path(:id => link.id) %>
+				<% end %>
+				<% if link.user_vote(current_user) == -1 %>
+					<span id="disabled">
+						<%= image_tag("graydown.png", :border => 0) %>
+					</span>
+				<% elsif link.user_vote(current_user) == 1 %>
+					<%= link_to image_tag("graydown.png", :border => 0),
+						remove_vote_path(:id => link.id) %>
+				<% else %>
+					<%= link_to image_tag("graydown.png", :border => 0),
+						down_vote_path(:id => link.id) %>
+				<% end %>
 		</td>
-		<td>
-			<% if link.user_vote(current_user) == -1 %>
-				<%= button_to '  ', {}, :disabled => true %>
-			<% elsif link.user_vote(current_user) == 1 %>
-				<%= button_to '-', remove_vote_path(:id => link.id) %>
-			<% else %>
-				<%= button_to '-', down_vote_path(:id => link.id) %>
-			<% end %>
-		</td>
-		<td><%= link_to link.title, link.url %>
-				<%= "(#{host_only(link.url)})" %><br />
-				<%= "#{link.score} points"%>
+		<td><span id="title"><%= link_to link.title, link.url %></span>
+				<span id="host"><%= "(#{host_only(link.url)})" %></span><br />
+				<span id="second"><%= "#{link.score} points"%>
 				<%= "by #{link.user.username}" %>
-				<%= "#{time_ago_in_words(link.created_at)} ago" %></td>
+				<%= "#{time_ago_in_words(link.created_at)} ago" %></span></td>
 	</tr>
 <% end %>
 </table>

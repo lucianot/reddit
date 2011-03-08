@@ -13,8 +13,7 @@ Vote.delete_all
 users = User.create([{:email => 'adminguy@email.com',
                       :password => 'letmein',
                       :password_confirmation => 'letmein',
-                      :username => 'adminguy',
-                      :admin => true },
+                      :username => 'adminguy'},
                     { :email => 'randomgirl@email.com',
                       :password => 'letmein',
                       :password_confirmation => 'letmein',
@@ -23,6 +22,8 @@ users = User.create([{:email => 'adminguy@email.com',
                       :password => 'letmein',
                       :password_confirmation => 'letmein',
                       :username => 'randomguy' }])
+                      
+User.find_by_email('adminguy@email.com').update_attribute(:admin, true)
                       
 links = Link.create([{:title => 'These guys copied my website! Should I sue?',
                       :url => 'http://www.reddit.com',
