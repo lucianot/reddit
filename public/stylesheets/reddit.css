@@ -11,16 +11,22 @@ body {
 	border: 0;  
 	background-color:#FF6600;
   font-size:   11px;
-  line-height: 16px;
-	outline-color: yellow;
-	outline-width: 5px;
+}
+
+.header #logo {
+	width: 14px;
+	border: 1px solid white;
+	font-size: 11px;
+	text-align: center;
+	vertical-align: center;
+	color: white;
 }
 
 .header #title {
 	font-weight: bold;
-	padding-left: 10px;
+	padding-left: 2px;
 	text-align: left;
-	width: 120px;
+	width: 90px;
 }
 
 .header #new {
@@ -41,25 +47,28 @@ body {
 	margin-right: auto;
 	width: 85%;
 	background-color:#F6F6EF;
-	padding-top: 8px;
+	padding-top: 6px;
 	padding-bottom: 16px;
+}
+
+td {
+/*	border: 1px solid blue;*/
 }
 
 .links #count {
 	padding-top: 4px;
 	vertical-align: top;
 	font-size:   11px;
-  line-height: 11px;
 	color: #787878;
 	width: 10px;
 }
 
 .links #count #one {
-	padding-left: 10px;
+	padding-left: 8px;
 }
 
 .links #button {
-	width: 14px;
+	width: 12px;
 }
 
 .links #button #disabled {
@@ -68,32 +77,25 @@ body {
 }
 
 .links #title {
-	font-size:   11px;
-  line-height: 8px;
+	font-size: 11px;
 }
 
 .links #host {
 	font-size:   9px;
-  line-height: 9px;
 	color: #787878;
 }
 
 .links #second {
 	font-size:   8px;
-  line-height: 8px;
 	color: #787878;
+	vertical-align: top;
 }
 
-.notice {
+.notice, .alert, .sign {
 	margin-left: auto;
 	margin-right: auto;
 	width: 85%;
-}
-
-.alert {
-	margin-left: auto;
-	margin-right: auto;
-	width: 85%;
+	font-size: 11px;
 }
 
 a { text-decoration:none }

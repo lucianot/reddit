@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Slacker News</title>
+		<title>Slacker News</title>
   <%= stylesheet_link_tag 'reddit', 'scaffold', :media => :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -9,6 +9,7 @@
 <body>
 	<table class="header">
 		<tr>
+			<td id="logo">S</td>
 			<td id="title">Slacker News</td>
 			<td id="new"><%= link_to "submit", new_link_path %></td>
 			<td id="admin">
